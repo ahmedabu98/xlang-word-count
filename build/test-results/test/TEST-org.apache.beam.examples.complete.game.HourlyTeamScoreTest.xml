@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.apache.beam.examples.complete.game.HourlyTeamScoreTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-06-01T08:53:46" hostname="penguin" time="0.521">
+  <properties/>
+  <testcase name="testUserScoreOptions" classname="org.apache.beam.examples.complete.game.HourlyTeamScoreTest" time="0.051"/>
+  <testcase name="testUserScoresFilter" classname="org.apache.beam.examples.complete.game.HourlyTeamScoreTest" time="0.47"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.apache.beam.examples.complete.game.StatefulTeamScoreTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-06-01T08:53:48" hostname="penguin" time="0.547">
+  <properties/>
+  <testcase name="testScoreUpdatesOneTeam" classname="org.apache.beam.examples.complete.game.StatefulTeamScoreTest" time="0.203"/>
+  <testcase name="testScoreUpdatesPerTeam" classname="org.apache.beam.examples.complete.game.StatefulTeamScoreTest" time="0.137"/>
+  <testcase name="testScoreUpdatesPerWindow" classname="org.apache.beam.examples.complete.game.StatefulTeamScoreTest" time="0.206"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

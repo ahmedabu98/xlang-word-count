@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.apache.beam.examples.complete.game.UserScoreTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-06-01T08:53:49" hostname="penguin" time="0.556">
+  <properties/>
+  <testcase name="testTeamScoreSums" classname="org.apache.beam.examples.complete.game.UserScoreTest" time="0.167"/>
+  <testcase name="testUserScoresBadInput" classname="org.apache.beam.examples.complete.game.UserScoreTest" time="0.096"/>
+  <testcase name="testUserScoreSums" classname="org.apache.beam.examples.complete.game.UserScoreTest" time="0.142"/>
+  <testcase name="testParseEventFn" classname="org.apache.beam.examples.complete.game.UserScoreTest" time="0.15"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Jun 01, 2023 4:53:49 AM org.apache.beam.examples.complete.game.UserScore$ParseEventFn processElement
+INFO: Parse error on THIS IS A PARSE ERROR,2015-11-19 09:53:53.444, Index 2 out of bounds for length 2
+Jun 01, 2023 4:53:49 AM org.apache.beam.examples.complete.game.UserScore$ParseEventFn processElement
+INFO: Parse error on user6_AliceBlueDingo,AliceBlueDingo,4,xxxxxxx,2015-11-19 09:53:53.444, For input string: "xxxxxxx"
+Jun 01, 2023 4:53:49 AM org.apache.beam.examples.complete.game.UserScore$ParseEventFn processElement
+INFO: Parse error on THIS IS A PARSE ERROR,2015-11-19 09:53:53.444, Index 2 out of bounds for length 2
+Jun 01, 2023 4:53:49 AM org.apache.beam.examples.complete.game.UserScore$ParseEventFn processElement
+INFO: Parse error on user6_AliceBlueDingo,AliceBlueDingo,4,xxxxxxx,2015-11-19 09:53:53.444, For input string: "xxxxxxx"
+Jun 01, 2023 4:53:49 AM org.apache.beam.examples.complete.game.UserScore$ParseEventFn processElement
+INFO: Parse error on user13_BisqueBilby,BisqueBilby,xxx,1447955630000,2015-11-19 09:53:53.444, For input string: "xxx"
+Jun 01, 2023 4:53:49 AM org.apache.beam.examples.complete.game.UserScore$ParseEventFn processElement
+INFO: Parse error on user6_AliceBlueDingo,AliceBlueDingo,4,xxxxxxx,2015-11-19 09:53:53.444, For input string: "xxxxxxx"
+Jun 01, 2023 4:53:49 AM org.apache.beam.examples.complete.game.UserScore$ParseEventFn processElement
+INFO: Parse error on THIS IS A PARSE ERROR,2015-11-19 09:53:53.444, Index 2 out of bounds for length 2
+Jun 01, 2023 4:53:49 AM org.apache.beam.examples.complete.game.UserScore$ParseEventFn processElement
+INFO: Parse error on THIS IS A PARSE ERROR,2015-11-19 09:53:53.444, Index 2 out of bounds for length 2
+Jun 01, 2023 4:53:49 AM org.apache.beam.examples.complete.game.UserScore$ParseEventFn processElement
+INFO: Parse error on user6_AliceBlueDingo,AliceBlueDingo,4,xxxxxxx,2015-11-19 09:53:53.444, For input string: "xxxxxxx"
+]]></system-err>
+</testsuite>

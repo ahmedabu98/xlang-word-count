@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.apache.beam.examples.complete.game.GameStatsTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-06-01T08:53:45" hostname="penguin" time="0.557">
+  <properties/>
+  <testcase name="testCalculateSpammyUsers" classname="org.apache.beam.examples.complete.game.GameStatsTest" time="0.501"/>
+  <testcase name="testGameStatsOptions" classname="org.apache.beam.examples.complete.game.GameStatsTest" time="0.056"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Jun 01, 2023 4:53:46 AM org.apache.beam.examples.complete.game.GameStats$CalculateSpammyUsers$1 processElement
+INFO: user Robot-1 spammer score 116 with mean 24.923076923076923
+Jun 01, 2023 4:53:46 AM org.apache.beam.examples.complete.game.GameStats$CalculateSpammyUsers$1 processElement
+INFO: user Robot-2 spammer score 66 with mean 24.923076923076923
+]]></system-err>
+</testsuite>
