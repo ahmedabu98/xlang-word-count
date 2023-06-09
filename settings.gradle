@@ -4,8 +4,6 @@
  * This project uses @Incubating APIs which are subject to change.
  */
 
-rootProject.name = 'word-count-beam'
+rootProject.name = 'xlang-word-count'
 
 include(":")
-include(":expansion-service")
-

@@ -33,67 +33,62 @@ import org.apache.beam.sdk.values.TypeDescriptors;
 
 @AutoService(SchemaTransformProvider.class)
 public class WordCountSchemaTransformProvider implements SchemaTransformProvider {
-    public static abstract class SchemaTransformFront extends PTransform<PCollectionRowTuple, PCollectionRowTuple> {}
+  @Override
+  public String identifier() {
+    return "beam:schematransform:org.apache.beam:wordcount:v1";
+  }
 
-    @Override
-    public String identifier() {
-        return "beam:schematransform:org.apache.beam:my_wordcount:v1";
+  @Override
+  public Schema configurationSchema() {
+    return Schema.builder().addStringField("inputFile").build();
+  }
+
+  @Override
+  public List<String> inputCollectionNames() {
+    return Collections.emptyList();
+  }
+
+  @Override
+  public List<String> outputCollectionNames() {
+    return Collections.singletonList("output");
+  }
+
+  @Override
+  public SchemaTransform from(Row configuration) {
+    return new SchemaTransform() {
+      @Override
+      public PTransform<PCollectionRowTuple, PCollectionRowTuple> buildTransform() {
+        return new WordCountSchemaTransform(configuration);
+      }
+    };
+  }
+
+  public static class WordCountSchemaTransform
+      extends PTransform<PCollectionRowTuple, PCollectionRowTuple> {
+    Row configuration;
+
+    WordCountSchemaTransform(Row configuration) {
+      this.configuration = configuration;
     }
 
     @Override
-    public Schema configurationSchema() {
-        return Schema.builder().addStringField("inputFile").build();
+    public PCollectionRowTuple expand(PCollectionRowTuple input) {
+      Schema schema = Schema.builder().addStringField("wordCount").build();
+      PCollection<Row> wordCountRows =
+          input
+              .getPipeline()
+              .apply(new WordCountTransform(configuration.getValue("inputFile")))
+              .apply(
+                  "To Beam Rows",
+                  MapElements.into(TypeDescriptors.rows())
+                      .via(
+                          wordCount ->
+                              Row.withSchema(schema)
+                                  .withFieldValue("wordCount", wordCount)
+                                  .build()))
+              .setRowSchema(schema);
+
+      return PCollectionRowTuple.of("output", wordCountRows);
     }
-
-    @Override
-    public List<String> inputCollectionNames() {
-        return Collections.emptyList();
-    }
-
-    @Override
-    public List<String> outputCollectionNames() {
-        return Collections.singletonList("words");
-    }
-
-    @Override
-    public SchemaTransform from(Row configuration) {
-        return new SchemaTransform() {
-            @Override
-            public SchemaTransformFront buildTransform() {
-                return new WordCountSchemaTransform(configuration);
-            }
-        };
-    }
-
-    public static class WordCountSchemaTransform extends SchemaTransformFront {
-        Row configuration;
-
-        WordCountSchemaTransform(Row configuration) {
-            this.configuration = configuration;
-        }
-
-        @Override
-        public PCollectionRowTuple expand(PCollectionRowTuple input) {
-            Schema schema = Schema.builder().addStringField("wordCount").build();
-            PCollection<Row> wordCountRows =
-                input
-                    .getPipeline()
-                    .apply(new WordCountTransform(configuration.getValue("inputFile")))
-                    .apply(
-                        "To Beam Rows",
-                        MapElements.into(TypeDescriptors.rows())
-                            .via(
-                                wordCount ->
-                                    Row.withSchema(schema)
-                                        .withFieldValue("wordCount", wordCount)
-                                        .build()))
-                    .setRowSchema(schema);
-
-            return PCollectionRowTuple.of("words", wordCountRows);
-        }
-    }
-
-    public static void main(String[] args) {
-        System.out.println("hi im here");
-    }
+  }
 }
