@@ -15,6 +15,6 @@ Steps:
 
 `./gradlew runExpansionService`
 
-- Run the Python pipeline:
+- While the expansion service is running, run the Python pipeline in a separate terminal:
 
 `python xlang_wordcount.py`
